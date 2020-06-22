@@ -2,12 +2,10 @@
 import pygame
 
 WIDTH = 800
-HEIGHT = 600
+HEIGHT = 800
 FPS = 30
 
-# Define Colors 
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
 
 ## initialize pygame and create window
 pygame.init()
@@ -16,7 +14,14 @@ pygame.display.set_caption("TicTacToe AI")
 clock = pygame.time.Clock()     ## For syncing the FPS
 
 # Create TicTacToe Grid
+for i in range(1, 4):
+	XPoint = WIDTH/3 * i
+	YPoint = HEIGHT/3 * i
 
+	# Vertical Lines
+	pygame.draw.line(screen, WHITE, (XPoint,0), (XPoint, HEIGHT), 10)
+	# Horizontal Lines
+	pygame.draw.line(screen, WHITE, (0, YPoint), (WIDTH, YPoint), 10)
 
 ## Game loop
 running = True
@@ -28,10 +33,6 @@ while running:
         ## listening for the the X button at the top
         if event.type == pygame.QUIT:
             running = False
-
-
-    #3 Draw/render
-    screen.fill(BLACK)
 
     ########################
 
